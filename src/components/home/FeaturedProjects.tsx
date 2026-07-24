@@ -270,37 +270,40 @@ export default function FeaturedProjects(){
                       >
 
                         {
-                          project.technologies.map(
+  [
+    ...project.technologies.frontend,
+    ...project.technologies.backend,
+    ...project.technologies.database,
+  ]
+  .slice(0,5)
+  .map(
 
-                            (
-                              tech:string
+    (tech:string)=>(
 
-                            )=>(
+      <span
 
-                              <span
+        key={tech}
 
-                                key={tech}
+        className="
+          rounded-full
+          border
+          border-default
+          px-3
+          py-1
+          text-xs
+          text-muted
+        "
 
-                                className="
-                                  rounded-full
-                                  border
-                                  border-default
-                                  px-3
-                                  py-1
-                                  text-xs
-                                  text-muted
-                                "
+      >
 
-                              >
+        {tech}
 
-                                {tech}
+      </span>
 
-                              </span>
+    )
 
-                            )
-
-                          )
-                        }
+  )
+}
 
                       </div>
 
