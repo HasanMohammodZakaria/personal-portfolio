@@ -81,20 +81,20 @@ export default async function ProjectDetailsPage({
           </div>
         </section>
 
-        {/* Problem Solving */}
-        <section className="mt-12">
-          <h2 className="text-2xl font-semibold">Problem Solving</h2>
-          <div className="mt-5 grid gap-4">
-            {project.problemSolving.map((item) => (
-              <div
-                key={item}
-                className="rounded-xl border border-border-default p-4 text-muted"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-        </section>
+       {/* Problem Solving */}
+<section className="mt-12">
+  <h2 className="text-2xl font-semibold">Problem Solving</h2>
+  <div className="mt-5 grid gap-4 md:grid-cols-2">
+    {project.problemSolving.map((item) => (
+      <div
+        key={item}
+        className="rounded-xl border border-border-default p-4 text-muted"
+      >
+        {item}
+      </div>
+    ))}
+  </div>
+</section>
 
         {/* Future Improvements */}
         <section className="mt-12">
@@ -113,15 +113,18 @@ export default async function ProjectDetailsPage({
           </div>
         </section>
 
+       
         {/* Technology Stack */}
         <section className="mt-12">
           <h2 className="text-2xl font-semibold">Technology Stack</h2>
 
-          <TechGroup title="Frontend" items={project.technologies.frontend} />
-          <TechGroup title="Backend" items={project.technologies.backend} />
-          <TechGroup title="Database" items={project.technologies.database} />
-          <TechGroup title="Deployment" items={project.technologies.deployment} />
-          <TechGroup title="Tools" items={project.technologies.tools} />
+          <div className="mt-5 grid gap-6 md:grid-cols-2">
+            <TechGroup title="Frontend" items={project.technologies.frontend} />
+            <TechGroup title="Backend" items={project.technologies.backend} />
+            <TechGroup title="Database" items={project.technologies.database} />
+            <TechGroup title="Deployment" items={project.technologies.deployment} />
+            <TechGroup title="Tools" items={project.technologies.tools} />
+          </div>
         </section>
 
         {/* Buttons */}
@@ -159,7 +162,14 @@ export default async function ProjectDetailsPage({
 
 function TechGroup({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="mt-8">
+    <div
+      className="
+        rounded-2xl
+        border
+        border-border-default
+        p-5
+      "
+    >
       <h3 className="mb-3 font-medium">{title}</h3>
       <div className="flex flex-wrap gap-3">
         {items.map((item) => (

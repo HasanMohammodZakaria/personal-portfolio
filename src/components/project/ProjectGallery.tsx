@@ -24,11 +24,13 @@ export default function ProjectGallery({
       <div
         className="
           relative
-          h-105
+          h-64
           overflow-hidden
           rounded-3xl
           border
           border-border-default
+          sm:h-80
+          md:h-105
         "
       >
         <Image
@@ -40,7 +42,13 @@ export default function ProjectGallery({
       </div>
 
       {/* Thumbnails */}
-      <div className="flex gap-4">
+      <div
+        className="
+          grid
+          grid-cols-4
+          gap-3
+        "
+      >
         {allImages.map((img, index) => (
           <button
             key={img}
@@ -48,9 +56,8 @@ export default function ProjectGallery({
             onClick={() => setActiveImage(img)}
             className={`
               relative
-              h-20
-              w-28
-              shrink-0
+              aspect-video
+              w-full
               overflow-hidden
               rounded-xl
               border
