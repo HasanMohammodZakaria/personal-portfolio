@@ -32,8 +32,6 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
         });
       },
       {
-        // Section counts as "active" once it crosses the upper-middle
-        // of the viewport, and stays active until the next one takes over.
         rootMargin: "-40% 0px -55% 0px",
         threshold: 0,
       }
@@ -49,7 +47,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <Logo size={52} />
+          <Logo size={52} className="h-9 w-9 md:h-13 md:w-13" />
         </Link>
 
         {/* Desktop Menu */}
@@ -75,12 +73,31 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
             );
           })}
 
-          <ThemeToggle />
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+
+            <Link
+              href="#contact"
+              className="
+                rounded-full
+                bg-primary
+                px-5
+                py-2
+                text-sm
+                font-medium
+                text-primary-foreground
+                transition-opacity
+                hover:opacity-90
+              "
+            >
+              Hire Me
+            </Link>
+          </div>
         </div>
 
         {/* Mobile */}
-        <div className="flex items-center gap-3 md:hidden">
-          <ThemeToggle />
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle size="sm" />
 
           <button
             type="button"
@@ -88,7 +105,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
             aria-label="Open menu"
             className="rounded-full border border-border-default p-2 transition-colors hover:border-primary"
           >
-            <HiBars3 size={22} />
+            <HiBars3 size={20} />
           </button>
         </div>
       </nav>

@@ -1,31 +1,19 @@
 "use client";
 
-import {
-  useTheme,
-} from "next-themes";
-
-import {
-  useSyncExternalStore,
-} from "react";
-
-import {
-  HiMoon,
-  HiSun,
-} from "react-icons/hi2";
-
+import { useTheme } from "next-themes";
+import { useSyncExternalStore } from "react";
+import { HiMoon, HiSun } from "react-icons/hi2";
 
 const emptySubscribe = () => {
   return () => {};
 };
 
+interface ThemeToggleProps {
+  size?: "sm" | "md";
+}
 
-export default function ThemeToggle() {
-
-  const {
-    theme,
-    setTheme,
-  } = useTheme();
-
+export default function ThemeToggle({ size = "md" }: ThemeToggleProps) {
+  const { theme, setTheme } = useTheme();
 
   const mounted = useSyncExternalStore(
     emptySubscribe,
@@ -33,78 +21,52 @@ export default function ThemeToggle() {
     () => false
   );
 
-
   if (!mounted) {
     return null;
   }
 
+  const isSmall = size === "sm";
+  const iconSize = isSmall ? 14 : 18;
+  const buttonPadding = isSmall ? "p-1.5" : "p-2";
 
   return (
-
     <div
-      className="
-        flex
-        gap-1
-        rounded-full
-        border
-        border-default
-        p-1
-      "
+      className={`
+        flex gap-1 rounded-full border border-border-default
+        ${isSmall ? "p-0.5" : "p-1"}
+      `}
     >
-
-
       <button
         type="button"
-        onClick={() =>
-          setTheme("dark")
-        }
+        onClick={() => setTheme("dark")}
         aria-label="Dark mode"
         className={`
-          rounded-full
-          p-2
-          transition
+          rounded-full ${buttonPadding} transition
           ${
             theme === "dark"
-              ?
-            "bg-primary text-black"
-              :
-            "text-muted"
+              ? "bg-primary text-primary-foreground"
+              : "text-muted"
           }
         `}
       >
-
-        <HiMoon size={18}/>
-
+        <HiMoon size={iconSize} />
       </button>
-
-
 
       <button
         type="button"
-        onClick={() =>
-          setTheme("light")
-        }
+        onClick={() => setTheme("light")}
         aria-label="Light mode"
         className={`
-          rounded-full
-          p-2
-          transition
+          rounded-full ${buttonPadding} transition
           ${
             theme === "light"
-              ?
-            "bg-primary text-black"
-              :
-            "text-muted"
+              ? "bg-primary text-primary-foreground"
+              : "text-muted"
           }
         `}
       >
-
-        <HiSun size={18}/>
-
+        <HiSun size={iconSize} />
       </button>
-
-
     </div>
-
   );
 }

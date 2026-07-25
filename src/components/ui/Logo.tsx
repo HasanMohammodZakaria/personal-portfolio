@@ -2,10 +2,10 @@ import React from "react";
 
 /**
  * HMZ logo mark
- * - No circle, plain inline wordmark
- * - Fully transparent background (works on any surface, dark or light)
- * - Uses CSS variables from globals.css so it auto-adapts to theme
- * - Pass a `size` prop to scale the whole mark (defaults to 44px tall)
+ * - Circular badge with gradient background (primary → accent)
+ * - Monogram "HMZ" in white, using Inter Bold for a crisp, bold look
+ * - Fixed white text color for consistent contrast in both dark/light mode
+ * - Pass a `size` prop to scale the whole mark (defaults to 44px)
  */
 
 interface LogoProps {
@@ -14,56 +14,38 @@ interface LogoProps {
 }
 
 export default function Logo({ size = 44, className = "" }: LogoProps) {
-  // viewBox is wider than tall since this is now an inline wordmark
-  const width = size * 2.2;
-
   return (
     <svg
-      width={width}
+      width={size}
       height={size}
-      viewBox="0 0 220 100"
+      viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-label="HMZ logo"
       role="img"
     >
-      {/* H - foreground color, bold */}
-      <text
-        x="38"
-        y="68"
-        textAnchor="middle"
-        fontSize="46"
-        fontWeight="700"
-        fill="var(--foreground)"
-        fontFamily="var(--font-michroma), sans-serif"
-      >
-        H
-      </text>
+      <defs>
+        <linearGradient id="hmz-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="var(--primary)" />
+          <stop offset="100%" stopColor="var(--accent)" />
+        </linearGradient>
+      </defs>
 
-      {/* M - accent color, bold, slightly larger */}
-      <text
-        x="110"
-        y="72"
-        textAnchor="middle"
-        fontSize="58"
-        fontWeight="700"
-        fill="var(--accent)"
-        fontFamily="var(--font-michroma), sans-serif"
-      >
-        M
-      </text>
+      {/* Circular background badge */}
+      <circle cx="50" cy="50" r="48" fill="url(#hmz-gradient)" />
 
-      {/* Z - foreground color, bold, same as H */}
+      {/* HMZ monogram */}
       <text
-        x="182"
-        y="68"
+        x="50"
+        y="63"
         textAnchor="middle"
-        fontSize="46"
+        fontSize="30"
         fontWeight="700"
-        fill="var(--foreground)"
-        fontFamily="var(--font-michroma), sans-serif"
+        letterSpacing="0"
+        fill="#ffffff"
+        fontFamily="var(--font-inter), sans-serif"
       >
-        Z
+        HMZ
       </text>
     </svg>
   );

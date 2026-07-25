@@ -18,13 +18,14 @@ export const navigation: NavigationItem[] = [
     href: "#projects",
   },
   {
-    label: "Process",
-    href: "#process",
-  },
-  {
     label: "Tech Stack",
     href: "#tech-stack",
   },
+  {
+    label: "Process",
+    href: "#process",
+  },
+  
   {
     label: "Contact",
     href: "#contact",

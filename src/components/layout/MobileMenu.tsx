@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { HiXMark } from "react-icons/hi2";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,6 +14,19 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ open, onClose }: MobileMenuProps) {
+  const [activeSection, setActiveSection] = useState<string>("");
+
+  useEffect(() => {
+    const handleHashCheck = () => {
+      setActiveSection(window.location.hash.replace("#", ""));
+    };
+
+    handleHashCheck();
+    window.addEventListener("hashchange", handleHashCheck);
+
+    return () => window.removeEventListener("hashchange", handleHashCheck);
+  }, []);
+
   return (
     <AnimatePresence>
       {open && (
@@ -40,26 +54,62 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             </button>
 
             {/* Nav links */}
-            <div className="flex flex-col gap-5">
-              {navigation.map((item: NavigationItem) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={onClose}
-                  className="text-lg text-foreground transition-colors hover:text-primary"
-                >
-                  {item.label}
-                </Link>
-              ))}
+            <div className="flex flex-col gap-2">
+              {navigation.map((item: NavigationItem) => {
+                const sectionId = item.href.replace("#", "");
+                const isActive = activeSection === sectionId;
+
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => {
+                      setActiveSection(sectionId);
+                      onClose();
+                    }}
+                    className={`
+                      rounded-xl px-4 py-3 text-lg transition-colors duration-200
+                      ${
+                        isActive
+                          ? "bg-primary/10 text-primary"
+                          : "text-foreground hover:bg-surface-secondary hover:text-primary"
+                      }
+                    `}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </div>
+
+            {/* Hire Me button */}
+            <Link
+              href="#contact"
+              onClick={onClose}
+              className="
+                rounded-full
+                bg-primary
+                px-5
+                py-3
+                text-center
+                text-sm
+                font-medium
+                text-primary-foreground
+                transition-opacity
+                hover:opacity-90
+              "
+            >
+              Hire Me
+            </Link>
 
             {/* Divider */}
             <div className="mt-auto border-t border-border-default pt-6">
               <div className="flex items-center gap-4">
                 {socialLinks.map((social) => {
                   const Icon = social.icon;
+
                   return (
-                    <a
+                    <Link
                       key={social.id}
                       href={social.href}
                       target={social.external ? "_blank" : undefined}
@@ -68,7 +118,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                       className="rounded-full border border-border-default p-2 text-muted transition-colors hover:border-primary hover:text-primary"
                     >
                       <Icon size={18} />
-                    </a>
+                    </Link>
                   );
                 })}
               </div>
