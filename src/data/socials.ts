@@ -45,7 +45,7 @@ export const socialLinks: SocialLink[] = [
     name: "LinkedIn",
 
     href:
-      "https://linkedin.com",
+      "https://www.linkedin.com/in/hasanmdzakaria",
 
     icon:
       FaLinkedin,
@@ -61,7 +61,7 @@ export const socialLinks: SocialLink[] = [
     name: "Facebook",
 
     href:
-      "https://facebook.com",
+      "https://www.facebook.com/hasan.m.zakaria.1",
 
     icon:
       FaFacebook,

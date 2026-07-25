@@ -1,24 +1,18 @@
 export const siteConfig = {
+  name: "Hasan Mohammod Zakaria",
 
-  name:
-    "Hasan Mohammod Zakaria",
-
-  title:
-    "Full Stack Developer",
+  title: "Hasan Mohammod Zakaria | Full Stack Developer",
 
   description:
     "Full Stack Developer building modern, scalable and production-ready web applications.",
 
-  url:
-    "https://hasanmdzakaria.com",
+  url: "https://hasanmdzakaria.com",
 
-  email:
-    "your-email@example.com",
+  email: "zakariak4@gmail.com",
 
-  github:
-    "https://github.com/HasanMohammodZakaria",
+  github: "https://github.com/HasanMohammodZakaria",
 
-  linkedin:
-    "https://linkedin.com",
+  linkedin: "https://www.linkedin.com/in/hasanmdzakaria",
 
+  facebook: "https://www.facebook.com/hasan.m.zakaria.1",
 };
