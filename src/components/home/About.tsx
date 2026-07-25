@@ -74,33 +74,33 @@ export default function About() {
             className="lg:col-span-2"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             <GlassCard className="h-full p-8">
               <h3 className="text-2xl font-semibold">My journey</h3>
 
               <p className="mt-5 leading-8 text-muted">
-                Curiosity is what pulled me toward web development. Seeing an
-                idea come to life on a screen, something people can actually
-                click, scroll and use, is what keeps me hooked to this craft.
+                Curiosity is what pulled me toward web development. Seeing
+                an idea come to life on a screen, something people can
+                actually click, scroll and use, is what keeps me hooked to
+                this craft.
+              </p>
 
-                <br />
-                <br />
-
+              <p className="mt-5 leading-8 text-muted">
                 I have spent the last stretch of my journey mastering the
                 full stack: React and Next.js on the frontend, Node.js and
                 Express on the backend, with MongoDB tying it all together.
                 Along the way, I built several projects on my own, choosing
-                to understand the &quot;why&quot; behind the code rather than
-                just following along.
+                to understand the &quot;why&quot; behind the code rather
+                than just following along.
+              </p>
 
-                <br />
-                <br />
-
-                I am currently part of the SCIC developer batch, where I continue sharpening
-                my craft through hands-on, industry-focused learning. What
-                drives me is building products that feel as good to use as
-                they were thoughtful to build.
+              <p className="mt-5 leading-8 text-muted">
+                I am currently part of the SCIC developer batch, where I
+                continue sharpening my craft through hands-on,
+                industry-focused learning. What drives me is building
+                products that feel as good to use as they were thoughtful
+                to build.
               </p>
             </GlassCard>
           </motion.div>
@@ -114,7 +114,7 @@ export default function About() {
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2 }}
               >
                 <GlassCard className="h-full p-6">
                   <h3 className="text-xl font-semibold text-primary">
@@ -143,7 +143,7 @@ export default function About() {
                   variants={cardVariants}
                   initial="hidden"
                   whileInView="show"
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.2 }}
                 >
                   <GlassCard className="flex h-full items-start gap-4 p-6">
                     <div className="rounded-xl border border-border-default p-3 text-primary">

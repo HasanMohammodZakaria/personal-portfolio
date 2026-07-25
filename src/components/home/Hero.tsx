@@ -32,7 +32,12 @@ export default function Hero() {
     <section id="home" className="scroll-mt-24 relative overflow-hidden pt-32 pb-20">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
         {/* Content */}
-        <motion.div variants={containerVariants} initial="hidden" animate="show">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+          className="order-2 flex flex-col items-center text-center lg:order-1 lg:items-start lg:text-left"
+        >
           <motion.span
             variants={itemVariants}
             className="inline-flex rounded-full border border-border-default px-4 py-2 text-sm text-primary"
@@ -64,16 +69,19 @@ export default function Hero() {
           </motion.p>
 
           {/* Buttons */}
-          <motion.div variants={itemVariants} className="mt-8 flex flex-wrap gap-4">
+          <motion.div
+            variants={itemVariants}
+            className="mt-8 flex flex-nowrap gap-3 sm:gap-4"
+          >
             <Link href="#projects">
-              <AnimatedButton>
+              <AnimatedButton className="px-4 text-sm sm:px-6 sm:text-base">
                 View projects
                 <HiArrowRight />
               </AnimatedButton>
             </Link>
 
             <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-              <AnimatedButton className="border border-border-default bg-transparent text-foreground">
+              <AnimatedButton className="border border-border-default bg-transparent px-4 text-sm text-foreground sm:px-6 sm:text-base">
                 Download CV
                 <HiDownload />
               </AnimatedButton>
@@ -105,7 +113,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative flex h-80 w-80 items-center justify-center justify-self-center md:h-96 md:w-96"
+          className="relative order-1 flex h-80 w-80 items-center justify-center justify-self-center lg:order-2 md:h-96 md:w-96"
         >
           {/* Decorative pulsing circles, behind the photo */}
           <motion.div

@@ -99,6 +99,7 @@ export default function DevelopmentProcess() {
                   }}
                   viewport={{
                     once: true,
+                    amount: 0.1,
                   }}
                   transition={{
                     duration: 0.5,
@@ -115,7 +116,7 @@ export default function DevelopmentProcess() {
                 >
                   {/* Dot + Icon */}
                   <div
-                    className="
+                    className={`
                       relative
                       z-10
                       flex
@@ -125,12 +126,12 @@ export default function DevelopmentProcess() {
                       items-center
                       justify-center
                       rounded-full
-                      bg-primary
                       text-primary-foreground
                       md:absolute
                       md:left-1/2
                       md:-translate-x-1/2
-                    "
+                      ${isEven ? "bg-primary" : "bg-accent"}
+                    `}
                   >
                     <Icon size={22} />
                   </div>
@@ -143,14 +144,23 @@ export default function DevelopmentProcess() {
                     "
                   >
                     <GlassCard
-                      className="
+                      className={`
                         p-6
                         transition-colors
                         duration-300
-                        hover:border-primary/40
-                      "
+                        ${
+                          isEven
+                            ? "hover:border-primary/40"
+                            : "hover:border-accent/40"
+                        }
+                      `}
                     >
-                      <span className="text-sm text-primary">
+                      <span
+                        className={`
+                          text-sm
+                          ${isEven ? "text-primary" : "text-accent"}
+                        `}
+                      >
                         Step {step.id}
                       </span>
 
