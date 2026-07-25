@@ -5,6 +5,8 @@ import {
   Michroma,
 } from "next/font/google";
 
+import { Toaster } from "react-hot-toast";
+
 import "./globals.css";
 
 import Providers from "./providers";
@@ -108,6 +110,25 @@ export default function RootLayout({
 
 
           <Footer />
+
+
+          <Toaster
+
+            position="top-center"
+
+            toastOptions={{
+
+              duration: 4000,
+
+              style: {
+                background: "var(--surface)",
+                color: "var(--foreground)",
+                border: "1px solid var(--border)",
+              },
+
+            }}
+
+          />
 
 
         </Providers>
