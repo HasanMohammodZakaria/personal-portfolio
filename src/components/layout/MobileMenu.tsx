@@ -1,172 +1,81 @@
 "use client";
 
 import Link from "next/link";
+import { HiXMark } from "react-icons/hi2";
+import { motion, AnimatePresence } from "framer-motion";
 
-import {
-  HiXMark,
-} from "react-icons/hi2";
-
-import {
-  motion,
-  AnimatePresence,
-} from "framer-motion";
-
-
-import {
-  navigation,
-  type NavigationItem,
-} from "@/data/navigation";
+import { navigation, type NavigationItem } from "@/data/navigation";
+import { socialLinks } from "@/data/socials";
 
 interface MobileMenuProps {
-
-  open:boolean;
-
-  onClose:()=>void;
-
+  open: boolean;
+  onClose: () => void;
 }
 
-
-export default function MobileMenu({
-
-  open,
-
-  onClose,
-
-}:MobileMenuProps){
-
-
+export default function MobileMenu({ open, onClose }: MobileMenuProps) {
   return (
-
     <AnimatePresence>
-
-      {
-        open && (
-
+      {open && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-60 bg-black/60 backdrop-blur-sm md:hidden"
+          onClick={onClose}
+        >
           <motion.div
-
-            initial={{
-              opacity:0,
-            }}
-
-            animate={{
-              opacity:1,
-            }}
-
-            exit={{
-              opacity:0,
-            }}
-
-            className="
-              fixed
-              inset-0
-              z-60
-              bg-black/60
-              backdrop-blur-sm
-              md:hidden
-            "
-
-            onClick={onClose}
-
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            onClick={(e) => e.stopPropagation()}
+            className="ml-auto flex h-full w-80 flex-col gap-8 border-l border-border-default bg-background p-6"
           >
-
-
-            <motion.div
-
-              initial={{
-                x:"100%",
-              }}
-
-              animate={{
-                x:0,
-              }}
-
-              exit={{
-                x:"100%",
-              }}
-
-              transition={{
-                duration:.3,
-              }}
-
-              onClick={(e)=>
-                e.stopPropagation()
-              }
-
-              className="
-                ml-auto
-                flex
-                h-full
-                w-80
-                flex-col
-                gap-8
-                border-l
-                border-default
-                bg-(--background)
-                p-6
-              "
-
+            <button
+              onClick={onClose}
+              aria-label="Close menu"
+              className="ml-auto rounded-full p-1 text-foreground transition-colors hover:text-primary"
             >
+              <HiXMark size={26} />
+            </button>
 
+            {/* Nav links */}
+            <div className="flex flex-col gap-5">
+              {navigation.map((item: NavigationItem) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={onClose}
+                  className="text-lg text-foreground transition-colors hover:text-primary"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
 
-              <button
-                onClick={onClose}
-                className="
-                  ml-auto
-                "
-              >
-
-                <HiXMark size={28}/>
-
-              </button>
-
-
-
-              <div
-                className="
-                  flex
-                  flex-col
-                  gap-5
-                "
-              >
-
-                {
-  navigation.map(
-    (item: NavigationItem)=>(
-      <Link
-
-        key={item.href}
-
-        href={item.href}
-
-        onClick={onClose}
-
-        className="
-          text-lg
-          hover:text-primary
-        "
-
-      >
-
-        {item.label}
-
-      </Link>
-    )
-  )
-}
-
+            {/* Divider */}
+            <div className="mt-auto border-t border-border-default pt-6">
+              <div className="flex items-center gap-4">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <a
+                      key={social.id}
+                      href={social.href}
+                      target={social.external ? "_blank" : undefined}
+                      rel={social.external ? "noopener noreferrer" : undefined}
+                      aria-label={social.name}
+                      className="rounded-full border border-border-default p-2 text-muted transition-colors hover:border-primary hover:text-primary"
+                    >
+                      <Icon size={18} />
+                    </a>
+                  );
+                })}
               </div>
-
-
-            </motion.div>
-
-
+            </div>
           </motion.div>
-
-        )
-      }
-
+        </motion.div>
+      )}
     </AnimatePresence>
-
   );
-
 }

@@ -89,8 +89,8 @@ export default function RootLayout({
 
         className="
           min-h-screen
-          bg-(--background)
-          text-(--foreground)
+          bg-background
+          text-foreground
         "
 
       >

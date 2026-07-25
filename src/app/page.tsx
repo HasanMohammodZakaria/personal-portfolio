@@ -1,4 +1,5 @@
 import About from "@/components/home/About";
+import Contact from "@/components/home/Contact";
 import DevelopmentProcess from "@/components/home/DevelopmentProcess";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import GitHubActivity from "@/components/home/GitHubActivity";
@@ -15,6 +16,7 @@ export default function Home() {
       <DevelopmentProcess />
       <TechStack />
       <GitHubActivity/>
+      <Contact />
     </div>
   );
 }
