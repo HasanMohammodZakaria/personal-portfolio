@@ -20,9 +20,10 @@ import {
   SiExpress,
   SiJsonwebtokens,
   SiMongodb,
+  SiPostgresql,
+  SiPrisma,
   SiGit,
   SiGithub,
-
   SiFigma,
   SiVercel,
   SiRailway,
@@ -54,8 +55,7 @@ const techGroups = [
 
   {
     title: "Backend",
-    description:
-      "Technologies for building scalable server-side applications.",
+    description: "Technologies for building scalable server-side applications.",
     icon: HiServerStack,
     technologies: [
       { name: "Node.js", icon: SiNodedotjs },
@@ -75,6 +75,8 @@ const techGroups = [
       { name: "MongoDB", icon: SiMongodb },
       { name: "MongoDB Atlas", icon: SiMongodb },
       { name: "Mongoose", icon: SiMongodb },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "Prisma", icon: SiPrisma },
     ],
   },
 
@@ -98,7 +100,7 @@ const techGroups = [
 
 export default function TechStack() {
   return (
-    <section id="tech-stack" className="section-padding">
+    <section id="tech-stack" className="scroll-mt-24 section-padding">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
           badge="Tech Stack"
