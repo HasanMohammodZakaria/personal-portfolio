@@ -6,7 +6,7 @@ export const siteConfig = {
   description:
     "Full Stack Developer building modern, scalable and production-ready web applications.",
 
-  url: "https://hasanmdzakaria.com",
+  url: "https://hasan-md-zakaria.vercel.app",
 
   email: "zakariak4@gmail.com",
 
