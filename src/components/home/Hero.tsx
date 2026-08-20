@@ -29,7 +29,10 @@ const itemVariants: Variants = {
 
 export default function Hero() {
   return (
-    <section id="home" className="scroll-mt-24 relative overflow-hidden pt-32 pb-20">
+    <section
+      id="home"
+      className="scroll-mt-24 relative overflow-hidden pt-32 pb-20"
+    >
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
         {/* Content */}
         <motion.div
@@ -50,7 +53,7 @@ export default function Hero() {
             className="mt-6 text-4xl font-bold leading-tight md:text-6xl"
           >
             Hi, I&apos;m
-            <span className="text-gradient">{" "}Hasan Md Zakaria</span>
+            <span className="text-gradient"> Hasan Md Zakaria</span>
           </motion.h1>
 
           <motion.h2
@@ -64,8 +67,8 @@ export default function Hero() {
             variants={itemVariants}
             className="mt-6 max-w-xl leading-8 text-muted"
           >
-            I build modern, scalable and production-ready web applications
-            using Next.js, TypeScript, React, Node.js and MongoDB.
+            I build modern, scalable and production-ready web applications using
+            Next.js, TypeScript, React, Node.js and MongoDB.
           </motion.p>
 
           {/* Buttons */}
@@ -80,7 +83,11 @@ export default function Hero() {
               </AnimatedButton>
             </Link>
 
-            <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="/resume_hasan.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <AnimatedButton className="border border-border-default bg-transparent px-4 text-sm text-foreground sm:px-6 sm:text-base">
                 Download CV
                 <HiDownload />
@@ -89,7 +96,10 @@ export default function Hero() {
           </motion.div>
 
           {/* Social */}
-          <motion.div variants={itemVariants} className="mt-8 flex items-center gap-5">
+          <motion.div
+            variants={itemVariants}
+            className="mt-8 flex items-center gap-5"
+          >
             {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
@@ -123,12 +133,22 @@ export default function Hero() {
           />
           <motion.div
             animate={{ scale: [1, 1.14, 1] }}
-            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            transition={{
+              duration: 7,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.5,
+            }}
             className="absolute h-[85%] w-[85%] rounded-full border border-accent/30"
           />
           <motion.div
             animate={{ scale: [1, 1.05, 1], opacity: [0.5, 0.8, 0.5] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1,
+            }}
             className="absolute h-[110%] w-[110%] rounded-full bg-primary/10 blur-2xl"
           />
 
