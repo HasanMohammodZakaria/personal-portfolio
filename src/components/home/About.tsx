@@ -33,7 +33,7 @@ const education = [
   {
     icon: HiAcademicCap,
     title: "BBA (Honours) in Marketing",
-    place: "National University",
+    place: "Darul Ihsan University",
     period: "Bachelor's degree",
   },
   {
@@ -80,27 +80,25 @@ export default function About() {
               <h3 className="text-2xl font-semibold">My journey</h3>
 
               <p className="mt-5 leading-8 text-muted">
-                Curiosity is what pulled me toward web development. Seeing
-                an idea come to life on a screen, something people can
-                actually click, scroll and use, is what keeps me hooked to
-                this craft.
+                Curiosity is what pulled me toward web development. Seeing an
+                idea come to life on a screen, something people can actually
+                click, scroll and use, is what keeps me hooked to this craft.
               </p>
 
               <p className="mt-5 leading-8 text-muted">
-                I have spent the last stretch of my journey mastering the
-                full stack: React and Next.js on the frontend, Node.js and
-                Express on the backend, with MongoDB tying it all together.
-                Along the way, I built several projects on my own, choosing
-                to understand the &quot;why&quot; behind the code rather
-                than just following along.
+                I have spent the last stretch of my journey mastering the full
+                stack: React and Next.js on the frontend, Node.js and Express on
+                the backend, with MongoDB tying it all together. Along the way,
+                I built several projects on my own, choosing to understand the
+                &quot;why&quot; behind the code rather than just following
+                along.
               </p>
 
               <p className="mt-5 leading-8 text-muted">
                 I am currently part of the SCIC developer batch, where I
-                continue sharpening my craft through hands-on,
-                industry-focused learning. What drives me is building
-                products that feel as good to use as they were thoughtful
-                to build.
+                continue sharpening my craft through hands-on, industry-focused
+                learning. What drives me is building products that feel as good
+                to use as they were thoughtful to build.
               </p>
             </GlassCard>
           </motion.div>
