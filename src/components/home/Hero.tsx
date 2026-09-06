@@ -84,7 +84,7 @@ export default function Hero() {
             </Link>
 
             <Link
-              href="/resume_of_hasan.pdf"
+              href="/resume-of-zakaria.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
